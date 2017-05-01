@@ -1,0 +1,3 @@
+-keep public class com.google.common.**
+-dontwarn com.google.common.**
+-keep public class org.apache.commons.codec.binary.Base64 { public *; }
