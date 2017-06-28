@@ -80,7 +80,7 @@ public class MainActivity
     @Override
     public void onConnectionFailed(int errorCode) {
         // handle connection failure...
-        Log.e(TAG, "failed to connect");
+        Log.e(TAG, "failed to connect: " + errorCode);
         tv.setText("Connection failed :(");
     }
 

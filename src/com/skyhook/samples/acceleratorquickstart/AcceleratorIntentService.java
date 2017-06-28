@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.skyhookwireless.accelerator.AcceleratorClient;
 import com.skyhookwireless.accelerator.CampaignVenue;
@@ -44,6 +45,7 @@ public class AcceleratorIntentService
             int errorCode = AcceleratorClient.getErrorCode(intent);
             Log.e(TAG, "accelerator error: " + errorCode);
             showNotification(NOTIFICATION_ERROR, "Accelerator Error", "Error Code: " + errorCode);
+            showToast("Accelerator Error: " + errorCode);
         } else {
             Log.i(TAG, "unknown intent type from accelerator");
         }
@@ -67,6 +69,10 @@ public class AcceleratorIntentService
         n.flags |=  Notification.FLAG_SHOW_LIGHTS;
 
         ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).notify(id, n);
+    }
+
+    private void showToast(final String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
     private PendingIntent getActivityPendingIntent()
