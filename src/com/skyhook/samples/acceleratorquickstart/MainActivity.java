@@ -46,6 +46,8 @@ public class MainActivity
         tv = (TextView) findViewById(R.id.tv);
         accelerator = new AcceleratorClient(this, Constants.API_KEY, this, this);
 
+        Log.d(TAG, "accelerator version: " + accelerator.getVersion());
+
         checkLocationPermission();
     }
 
