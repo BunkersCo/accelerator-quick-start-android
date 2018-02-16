@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.skyhook.samples.acceleratorquickstart"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="com.skyhook.context.RECEIVE_EVENT"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/skyhook_logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.skyhook.context.API_KEY"
+                   android:value="Put your key here"/>
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".AcceleratorReceiver"
+                  android:exported="false">
+            <intent-filter>
+                <action android:name="com.skyhook.context.ACCELERATOR_EVENT"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

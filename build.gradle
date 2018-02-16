@@ -1,53 +1,16 @@
 buildscript {
     repositories {
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
-repositories {
-    jcenter()
-}
-
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
-    defaultConfig {
-        applicationId "com.skyhook.samples.acceleratorquickstart"
-        minSdkVersion 9
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+allprojects {
+    repositories {
+        google()
+        jcenter()
     }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
-        }
-    }
-
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            jniLibs.srcDir 'libs'
-            java.srcDirs         = ['src']
-            resources.srcDirs    = ['src']
-            aidl.srcDirs         = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs          = ['res']
-        }
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
-    compile 'com.google.android.gms:play-services-ads:9.0.0'
 }
