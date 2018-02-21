@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.skyhook.context.Accelerator;
 import com.skyhook.context.CampaignVenue;
 
-public class AcceleratorReceiver
+public class MyAcceleratorReceiver
     extends BroadcastReceiver
 {
     @Override
@@ -16,17 +16,15 @@ public class AcceleratorReceiver
         if (Accelerator.hasError(intent)) {
             showMessage(context, "Accelerator error: " + Accelerator.getErrorCode(intent));
         } else {
-            final int transition = Accelerator.getCampaignVenueTransition(intent);
-            if (transition > 0) {
-                final CampaignVenue venue = Accelerator.getTriggeringCampaignVenue(intent);
-                if (venue != null) {
-                    showMessage(context, String.format(
-                        "%s %s",
-                        transition == CampaignVenue.CAMPAIGN_VENUE_TRANSITION_ENTER
-                            ? "Entered" : "Exited",
-                        venue));
-                    // TODO: add more cowbell
-                }
+            final CampaignVenue venue = Accelerator.getTriggeringCampaignVenue(intent);
+            if (venue != null) {
+                final int transition = Accelerator.getCampaignVenueTransition(intent);
+                showMessage(context, String.format(
+                    "%s %s",
+                    transition == CampaignVenue.CAMPAIGN_VENUE_TRANSITION_ENTER
+                        ? "Entered" : "Exited",
+                    venue));
+                // TODO: add more cowbell
             }
         }
     }

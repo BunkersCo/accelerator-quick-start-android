@@ -29,9 +29,8 @@ public class MainActivity
     }
 
     @Override
-    public void onRequestPermissionsResult(final int requestCode,
-                                           final String[] permissions,
-                                           final int[] grantResults)
+    public void onRequestPermissionsResult(
+        final int requestCode, final String[] permissions, final int[] grantResults)
     {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             startMonitoring();

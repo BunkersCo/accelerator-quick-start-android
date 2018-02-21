@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AcceleratorReceiver"
+        <receiver android:name=".MyAcceleratorReceiver"
                   android:exported="false">
             <intent-filter>
                 <action android:name="com.skyhook.context.ACCELERATOR_EVENT"/>
