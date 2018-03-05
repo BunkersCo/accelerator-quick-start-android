@@ -33,6 +33,13 @@ Put your Skyhook API key under the `application` section in `AndroidManifest.xml
 ```
 You can obtain the API key from [my.skyhookwireless.com](https://my.skyhookwireless.com).
 
+## Import the SDK
+
+Import the accelerator API:
+```java
+import com.skyhook.context.Accelerator;
+```
+
 ## Initialize Accelerator API
 
 Add the following call in the `onCreate` method of your activity or application class:
@@ -43,6 +50,7 @@ public void onCreate(Bundle savedInstanceState) {
     ...
 }
 ```
+
 ## Request location permission
 
 In order to be able to start campaign monitoring, your app must first obtain
