@@ -13,13 +13,13 @@ repositories {
 Add SDK to the `dependencies` section:
 ```gradle
 dependencies {
-    compile 'com.skyhook.context:accelerator:2.1.1+'
+    compile 'com.skyhook.context:accelerator:2.1.2'
 }
 ```
 Note that you can exclude transitive dependencies to resolve version conflicts, and include those dependencies separately:
 ```gradle
 compile 'com.android.support:appcompat-v7:26.1.0'
-compile('com.skyhook.context:accelerator:2.1.1+') {
+compile('com.skyhook.context:accelerator:2.1.2') {
     exclude module: 'support-v4'
 }
 ```
