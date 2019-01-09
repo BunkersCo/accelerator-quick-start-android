@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.skyhook.context.Accelerator;
+import com.skyhook.context.AcceleratorStatusCodes;
 import com.skyhook.task.OnFailureListener;
 import com.skyhook.task.OnSuccessListener;
 
@@ -51,7 +52,11 @@ public class MainActivity
                    .setOnFailureListener(new OnFailureListener() {
                        @Override
                        public void onFailure(final int code) {
-                           tv.setText("Error: " + code);
+                           if (code == AcceleratorStatusCodes.ERROR_API_KEY_NOT_SET) {
+                               tv.setText("API key is not set in AndroidManifest.xml!");
+                           } else {
+                               tv.setText("Error: " + code);
+                           }
                        }
                    });
     }

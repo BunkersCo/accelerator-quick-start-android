@@ -10,16 +10,18 @@ repositories {
     maven { url 'https://skyhookwireless.github.io/skyhook-context-android' }
 }
 ```
+
 Add SDK to the `dependencies` section:
 ```gradle
 dependencies {
-    compile 'com.skyhook.context:accelerator:2.1.2'
+    implementation 'com.skyhook.context:accelerator:2.1.4'
 }
 ```
+
 Note that you can exclude transitive dependencies to resolve version conflicts, and include those dependencies separately:
 ```gradle
-compile 'com.android.support:appcompat-v7:26.1.0'
-compile('com.skyhook.context:accelerator:2.1.2') {
+implementation 'com.android.support:appcompat-v7:28.0.0'
+implementation('com.skyhook.context:accelerator:2.1.4') {
     exclude module: 'support-v4'
 }
 ```
@@ -29,8 +31,9 @@ compile('com.skyhook.context:accelerator:2.1.2') {
 Put your Skyhook API key under the `application` section in `AndroidManifest.xml`:
 ```xml
 <meta-data android:name="com.skyhook.context.API_KEY"
-           android:value="Put your key here"/>
+           android:value="PUT YOUR KEY HERE"/>
 ```
+
 You can obtain the API key from [my.skyhookwireless.com](https://my.skyhookwireless.com).
 
 ## Import the SDK
